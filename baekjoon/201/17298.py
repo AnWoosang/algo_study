@@ -1,7 +1,20 @@
 import sys
+input = sys.stdin.readline
 
-num = int(sys.stdin.readline().rstrip())
+n = int(input())
+arr = list(map(int, input().split()))
+result = [-1 for _ in range(n)]
+stack = []
 
-seq = list(map(int, sys.stdin.readline().split()))
+for i in range(n):
+    try:
+        while arr[stack[-1]] < arr[i]:
+            result[stack.pop()] = arr[i]
+    
+    except:
+        pass
+    
+    stack.append(i)
 
-print(seq)
+for i in range(n):
+    print(result[i], end=" ")
