@@ -1,9 +1,10 @@
 from collections import Counter
 
-a = [1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
-b = Counter(a)
+a = ["A", "A", "C", "D", "E"]
+
+b = {}
+
+for i in a:
+    b[i] = 0
+
 print(b)
-
-b[1] -= 1
-
-print(b[1])
