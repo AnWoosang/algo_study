@@ -1,34 +1,9 @@
-import sys
+from collections import Counter
 
-num = int(sys.stdin.readline().rstrip())
-seq = list(map(int, sys.stdin.readline().split()))
-length = len(seq)
+a = [1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3]
+b = Counter(a)
+print(b)
 
-stack = [0]
-nge = [0]
+b[1] -= 1
 
-if stack:
-    print("true")
-# for i in range(length):
-    
-# for i in range(length):
-#     tmp = seq[i+1:length]
-#     tmp_num = len_res
-    
-#     if len(tmp) == 0:
-#         res.append(-1)
-    
-#     else:
-#         for j in tmp:
-
-#             if seq[i] < j:
-#                 res.append(j)
-#                 len_res += 1
-#                 break
-            
-#         if tmp_num == len_res:
-#             res.append(-1)
-#             len_res += 1
-# for i in res:
-#     print(i, end=" ")
-# print()
+print(b[1])
