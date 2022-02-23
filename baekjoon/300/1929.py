@@ -14,7 +14,7 @@ for i in range(start, end):
         print(i)
         continue
 
-    elif i % 2 == 0 and i != 2:
+    elif i % 2 == 0:
         continue
 
     elif i % 3 == 0 and i != 3:
@@ -27,7 +27,7 @@ for i in range(start, end):
         continue
 
     else:
-        for j in range(2,i):
+        for j in range(2, int(i**(0.5))+1):
             if i % j == 0:
                 isprime = False
                 break
