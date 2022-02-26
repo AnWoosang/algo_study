@@ -10,5 +10,4 @@ while t:
         for j in line[i+1:]:
            res += math.gcd(line[i], j)
     print(res)
-
     t -= 1
