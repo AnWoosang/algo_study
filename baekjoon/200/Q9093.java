@@ -6,28 +6,32 @@ import java.io.OutputStreamWriter;
 
 public class Q9093 {
 
-    public static String reverse(String s){
-        StringBuffer sb = new StringBuffer();
-        for (int i = s.length() - 1; i >= 0; i--){
-            sb.append(s.charAt(i));
-        }
-        return sb.toString();
-    }
-
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         int n = Integer.parseInt(br.readLine());
-        String[] temp;
+        char temp;
+        StringBuffer sb = new StringBuffer();
+        boolean done;
         
         for(int i = 0; i < n; i++){
-            temp = br.readLine().split(" ");
-            for(String s: temp){
-                bw.write(reverse(s)+" ");
+            done = false;
+            while(!done){
+                temp = (char)(br.read());
+                if(temp == '\n' || temp == ' '){
+                    sb.reverse();
+                    bw.write(sb.toString().strip()+" ");
+                    sb.delete(0, sb.length());
+                    if(temp == '\n'){
+                        bw.write('\n');
+                        done = true;
+                    }
+                }
+                sb.append(temp);
             }
-            bw.write("\n");
         }
+        
         bw.flush();
         br.close();
         bw.close();
