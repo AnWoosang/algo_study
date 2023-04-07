@@ -10,19 +10,17 @@ public class Test {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        StringBuffer sb = new StringBuffer();
-        int n = Integer.parseInt(br.readLine());
-        try{
-            for (int i = 0 ; i < n ; i++){
-                // sb.append(br.readLine());
-                // System.out.println(sb.toString());
-                // sb.delete(0, sb.length());
-                System.out.println(br.readLine());
-            }
-    
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        bw.write("1");
+        bw.write("1");
+        bw.write("1");
+        bw.write("1\n");
+        bw.close();
+        bw.write("2");
+        bw.write("2");
+        bw.write("2");
+        bw.write("2\n");
+        bw.flush();
+        bw.close();
+
     }
 }
