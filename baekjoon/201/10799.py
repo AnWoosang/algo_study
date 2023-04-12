@@ -8,6 +8,7 @@ s = list(sys.stdin.readline().rstrip())
 
 for i in range(len(s)):
     
+
     if len(line) == 0:
         line.append(s[i])
 
@@ -17,6 +18,7 @@ for i in range(len(s)):
     
     else:
         line.append(s[i])
+    print(i , " " , line)
 
 
 for i in range(len(line)):
