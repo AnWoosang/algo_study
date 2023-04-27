@@ -6,57 +6,51 @@ import java.io.OutputStreamWriter;
 import java.util.Stack;
 
 public class Q1918 {
+
+public static int priority(char c){
+    int result = -1;
+    switch(c){
+        case '*': case'/': result = 1; break;
+        case '+': case'-': result = 0; break;
+        default: break;
+    }
+    return result;
+}
+
 public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringBuffer sb = new StringBuffer();
-        Stack<Character> optSt = new Stack<>();
-        char[] input = br.readLine().toCharArray();
-        int size = input.length;
+        Stack<Character> st = new Stack<>();
+        char[] input = br.readLine().strip().toCharArray();
 
-        boolean bracket = false;
-        int cnt = 0;
-        char ch;
-        char prev='\0';
-
-        while(true){
-            if(cnt >= size){
-                break; 
-            }
-            ch = input[cnt];
-
-            if(ch == '+' || ch =='-'){
-                if(!optSt.empty()){
-                    if(optSt.peek() == '+' || optSt.peek() == '-'){
-                        sb.deleteCharAt(sb.length()-1);
-                        sb.append(optSt.pop());
-                        sb.append(prev);
-                        cnt++;
-                    }
+        for(char c : input){
+            if (c == '*' || c== '/' || c == '+' || c == '-'){
+                while(!st.isEmpty() && priority(st.peek()) >= priority(c)){
+                    sb.append(st.pop());
                 }
-                optSt.push(ch);
+                st.push(c);
             }
-            else if (ch == '*' || ch == '/'){
-                optSt.push(ch);
+            else if (c =='('){
+                st.push(c);
             }
-            else if (ch == '('){
-
-            }
-            else if (ch == ')'){
-
-            }
-            else {
-                sb.append(ch);
-                cnt++;
-                prev = ch;
-                if (!optSt.empty()){
-                    sb.append(optSt.pop());
-                    cnt++;  
+            else if (c == ')'){
+                while(!st.isEmpty() && st.peek() != '('){
+                    sb.append(st.pop());
                 }
+                st.pop();
+            }
+            else{
+                sb.append(c);
             }
 
         }
+        while(!st.isEmpty()){
+            sb.append(st.pop());
+        }
+        
+        
         bw.write(sb.toString()+"\n");
         bw.flush();
         br.close();
