@@ -3,6 +3,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -15,19 +17,11 @@ public class Test {
 public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        Stack<Character> st = new Stack<>();
-        char[] input = br.readLine().toCharArray();
-        StringBuffer res = new StringBuffer();
-        char tmp;
-        
-        HashMap<Character, Integer> priority = new HashMap<>();
-        priority.put('+', 2);   priority.put('-', 2);
-        priority.put('*', 1);   priority.put('/', 1);
-        priority.put('(', 0);   priority.put(')', 0);
 
-
-
-        bw.write(res.toString()+"\n");
+        char[] arr = {'a', 'c', 'b', 'd'};
+        Arrays.sort(arr);
+        for(char c: arr) bw.write(c+" ");
+        bw.write("\n");
         bw.flush();
         br.close();
         bw.close();
