@@ -1,9 +1,10 @@
-import time 
+n = int(input())
+res = 1
 
-start_time = time.process_time()
+for i in range(n+1):
+    if i==0:
+        continue
+    else:
+        res *= i
 
-for i in range(2000000000):
-    a = 0
-end_time = time.process_time()
-
-print(end_time - start_time)
+print(res)

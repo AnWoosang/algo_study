@@ -3,22 +3,20 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.math.BigInteger;
 
-public class Test{
+public class Q10872{
 
+    public static int facto(int a){
+        if (a==1||a==0) return 1;
+        return facto(a-1)*a;
+    }
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        BigInteger bi = new BigInteger("1");
 
         int n = Integer.parseInt(br.readLine());
-        for (int i = 1; i <= n; i++) {
-            bi = bi.multiply(BigInteger.valueOf(i));
-        }
-
-        System.out.println(bi);
+        bw.write(facto(n)+"\n");
 
         bw.flush();
         bw.close();
