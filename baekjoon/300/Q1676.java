@@ -6,13 +6,6 @@ import java.io.OutputStreamWriter;
 
 public class Q1676{
 
-    public static int facto(int n){
-        int res=1;
-        for (int i = 1; i <= n; i++) {
-            res*=i;
-        }
-        return res;
-    }
 
     public static int[] divider(int n){
         int[] res = {0, 0};
